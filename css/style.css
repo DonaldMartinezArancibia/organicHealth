@@ -1,0 +1,336 @@
+/* ANIMACION DE CARGA */
+.carga{
+  opacity: 0;
+  background: #f1f1f1;
+  position: fixed;
+  z-index: -99;
+  width: 100vw;
+  height: 100%;
+  animation: background-color 11.5s normal linear;
+}
+@keyframes background-color{
+  from{
+    background: #f1f1f1;
+    opacity: 1;
+    z-index: 99;
+  }
+  33%{
+    background: #ccc;
+    opacity: 1;
+    z-index: 99;
+  }
+  66%{
+    background: #f2f2f2;
+    opacity: 1;
+  }
+  100%{
+    z-index: -99;
+  }
+}
+.spinner{
+  width: 140px;
+  height: 140px;
+  font-size: 3em;
+  margin: 20vw 45vw;
+  display: grid;
+  grid: 1fr 1fr / 1fr 1fr ;
+  animation: box-rotate 1s normal infinite;
+}
+
+@keyframes box-rotate{
+  to{transform: rotate(360deg);}
+}
+
+.spinner i:nth-of-type(1){color: #fda543;}
+.spinner i:nth-of-type(2){justify-self: end; color: #f53e39;}
+.spinner i:nth-of-type(3){align-self: end; color: #183a48;}
+.spinner i:nth-of-type(4){justify-self: end; align-self: end; color: #19a68b;}
+
+.spinner i{animation: circle-color 15s linear infinite;}
+
+@keyframes circle-color{
+  33%{opacity: .5;}
+  66%{opacity: 0;}
+}
+/* FIN DE LA ANIMACION DE CARGA */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Baloo Tamma 2','Font Awesome 5 Free';
+  list-style: none;
+  text-decoration: none;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  background: #ffffff;
+/*   height: 5000px; */
+}
+header{
+  height: 95vw;
+  background: url(../img/pexels-photo-1660027.jpeg) 0%18%/100% no-repeat fixed;
+}
+.head{
+  align-items: center;
+  background-color: ghostwhite;
+  box-shadow: 8px 8px 16px rgba(165, 177, 198, 0.8);
+  display: grid;
+  font-size: 8vw;
+  grid-template: auto/repeat(2, 1fr);
+  padding: 3vw 3vw 0vw 3vw;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.head a img{
+  width: 30vw;
+}
+.head a img:hover{
+/*   width: 30vw; */
+  transition: 1s;
+  transform: scale(1.2);
+}
+.head label{
+  display: block;
+  justify-self: end;
+  text-align: center;
+}
+.head label:before{
+  content: "\f039";
+  font-weight: 900;
+  transition: all .3s;
+}
+.head label:hover:before{
+  color: greenyellow;
+}
+.head .side-menu, input{
+  display: none;
+}
+.head input:checked ~ label:before{
+  content: "\f038";
+  color: greenyellow;
+}
+.head input:checked ~ nav .side-menu{
+  display: block;
+  margin-top: 6vw;
+}
+nav{
+  font-size: 6vw;
+  grid-column: 1/3;
+  text-align: center;
+  text-transform: uppercase;
+}
+.side-menu a:hover{
+  transition: all .3s;
+  color: greenyellow;
+}
+section{
+  margin: 1vw;
+  display: grid;
+  gap: 5vw 0;
+}
+section h1{
+  display: flex;
+  justify-self: center;
+  font-size: 6vw;
+  color: white;
+  background: greenyellow;
+  margin: 4vw 0 0;
+  padding: 0 27vw;
+}
+section article{
+  border: .2vw solid #ccc;
+  padding: .6vw;
+  position: relative;
+}
+section article img{
+  width: 100%;
+}
+.hide{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.up{
+	width: 100%;
+	height: 51%;
+	background: rgba(0,0,0,.5);
+	transform: rotate(90deg);
+	transform-origin: left top;
+	transition: .5s;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.down{
+	width: 100%;
+	height: 50%;
+	background: rgba(0,0,0,.5);
+	transform: rotate(90deg);
+	transform-origin: right bottom;
+	transition: .5s;
+	position: absolute;
+	top: 50%;
+}
+.hide button{
+  background: #00000099;
+  border: none;
+	color: white;
+	font-size: 1.5em;
+	position: relative;
+	width: 100%;
+  padding: 25% 0 100%;
+	transition: .5s;
+  overflow: hidden;
+  opacity: 0;
+}
+.hide button:hover{
+  color: white;
+  opacity: 1;
+  transition: all 7s;
+  cursor: pointer;
+}
+.hide button:hover{
+	animation: search 5s alternate-reverse infinite;
+	animation-timing-function: linear;
+}
+@keyframes search{
+	0%{transform: scale(1.4);}
+	25%{transform: scale(1.1);}
+	50%{transform: scale(1.4);}
+	75%{transform: scale(1.1);}
+	100%{transform: scale(1.5);}
+}
+.hide button a{
+  color: white;
+}
+.hide:hover .up, .hide:hover .down{
+	transform: rotate(0deg);
+}
+article p{
+  margin: 1vw .5vw;
+}
+video{
+  width: 90%;
+  margin: 0 4.5vw;
+}
+section article:last-of-type{
+  font-size: 3vw;
+  border: none;
+  margin: auto;
+  color: white;
+  background-color: rebeccapurple;
+}
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: #000000;
+  opacity: 0.97;
+  height: 5vw;
+  font-size: 2vw;
+}
+/* COMIENZO DEL MEDIA QUIERIE */
+
+/* Diseño para tablet */
+@media (min-width: 750px){
+    header{
+      height: 80vw;
+      background: url(../img/pexels-photo-616404.jpeg) 50%55%/100% no-repeat fixed;
+    }
+    .head{
+      font-size: 5vw;
+    }
+    .head a img{
+      width: 20vw;
+    }
+    .head input:checked ~ nav .side-menu{
+      margin-top: 2vw;
+    }
+    nav{
+      font-size: 4vw;
+    }
+    section{
+      display: grid;
+      grid: 1fr / 1fr 1fr;
+      gap: 2vw;
+    }
+    section h1{
+      grid-column: 1/3;
+      font-size: 4vw;
+      margin: .8vw 0 0;
+      padding: 0 34.5vw;
+    }
+    section article:last-of-type{
+      grid-column: 1/3;
+      font-size: 2.2vw;
+      border: none;
+      color: white;
+      background-color: rebeccapurple;
+/*         height: 40vw; */
+    }
+}
+
+/* Diseño para escritorio */
+@media (min-width: 1200px){
+    header{
+      height: 45vw;
+      background: url(../img/pexels-photo-616404.jpeg) 50%55%/100% no-repeat fixed;
+    }
+    .head{
+      font-size: 2vw;
+      padding: 1vw 2vw 0vw 3vw;
+      display: flex;
+      justify-content: space-between ;
+    }
+    .head a img{
+      width: 8vw;
+      transform: scale(1.5);
+    }
+    .head a img:hover{
+      transform: scale(1.3);
+    }
+    .head input:checked ~ nav .side-menu{
+      margin-top: 0vw;
+    }
+    .head label{
+      display: none;
+    }
+    .head .side-menu{
+      display: flex;
+    }
+    ul,li{
+      padding-bottom: .3vw;
+      font-size: 1.3vw;
+      display: flex;
+      margin-left: 3vw;
+    }
+    section{
+      grid: 1fr/ 1fr 1fr 1fr;
+    }
+    section h1{
+      display: flex;
+      grid-column: 1/4;
+      font-size: 2.5vw;
+      margin: .8vw 0 0;
+      padding: 0 39.90vw;
+    }
+      section article:last-of-type{
+      grid-column: 1/4;
+      font-size: 1.7vw;
+      border: none;
+        color: white;
+      background-color: rebeccapurple;
+/*         height: 40vw; */
+    }
+     video{
+      height: 30vw;
+    }
+}
